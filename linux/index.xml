@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linuxes on 文档目录</title>
+    <link>http://localhost:1313/linux/</link>
+    <description>Recent content in Linuxes on 文档目录</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="http://localhost:1313/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/linux/centos-wifi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/linux/centos-wifi/</guid>
+      <description> centos连接wifi无线网 # # list all network devices $ nmcli dev status # check if wifi is enabled or not. $ nmcli radio wifi # if wifi is disabled, then enable it. $ nmcli radio wifi on # 列出附近wifi $ nmcli dev wifi list # 连接wifi nmcli dev wifi connect &amp;lt;network-ssid&amp;gt; [password &amp;lt;password&amp;gt;] </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/linux/sysctl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/linux/sysctl/</guid>
+      <description>Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&amp;#34;[$Example]&amp;#34; $ sysctl -w net.ipv4.ip_local_port_range=&amp;#34;10000 65535&amp;#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 EOF $ sysctl -p /etc/sysctl.</description>
+    </item>
+    
+  </channel>
+</rss>
