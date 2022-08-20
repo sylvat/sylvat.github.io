@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" centos设置静态IP # 设置以太网静态IP # # 修改网卡配置 $ vi /etc/sysconfig/network-scripts/ifcfg-enp89s0 # 修改如下： BOOTPROTO=static ONBOOT=yes IPADDR=192.168.0.18 NETMASK=255.255.255.0 GATEWAY=192.168.0.1 # 重启网卡 $ systemctl restart network 设置wifi连接静态IP # $ vi /etc/sysconfig/network-scripts/ifcfg-TP-LINK_XXXX # 修改BOOTPROTO为static BOOTPROTO=static #开机启用 ONBOOT=yes # 添加IP IPADDR=192.168.0.12 NETMASK=255.255.255.0 GATEWAY=192.168.0.1 # 重启 $ reboot # 查看IP $ ip addr ">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content=" centos设置静态IP # 设置以太网静态IP # # 修改网卡配置 $ vi /etc/sysconfig/network-scripts/ifcfg-enp89s0 # 修改如下： BOOTPROTO=static ONBOOT=yes IPADDR=192.168.0.18 NETMASK=255.255.255.0 GATEWAY=192.168.0.1 # 重启网卡 $ systemctl restart network 设置wifi连接静态IP # $ vi /etc/sysconfig/network-scripts/ifcfg-TP-LINK_XXXX # 修改BOOTPROTO为static BOOTPROTO=static #开机启用 ONBOOT=yes # 添加IP IPADDR=192.168.0.12 NETMASK=255.255.255.0 GATEWAY=192.168.0.1 # 重启 $ reboot # 查看IP $ ip addr " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/linux/staticip/" /><meta property="article:section" content="linux" />
+
+
+
+<title>Staticip | 文档目录</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.b506b3c0a3a8d01f285619b34991da0217fa146cdf2d7f5d7ef92416a1b0702d.js" integrity="sha256-tQazwKOo0B8oVhmzSZHaAhf6FGzfLX9dfvkkFqGwcC0=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>文档目录</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul>
+<li><strong>Linux</strong></li>
+<li><a href="/linux/sysctl/">Linux内核参数</a></li>
+<li><a href="/linux/centos-wifi/">centos连接wifi无线网</a></li>
+<li><a href="/linux/staticip/"class=active>静态IP设置</a>
+<br /></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Staticip</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#centos设置静态ip">centos设置静态IP</a>
+      <ul>
+        <li><a href="#设置以太网静态ip">设置以太网静态IP</a></li>
+        <li><a href="#设置wifi连接静态ip">设置wifi连接静态IP</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="centos设置静态ip">
+  centos设置静态IP
+  <a class="anchor" href="#centos%e8%ae%be%e7%bd%ae%e9%9d%99%e6%80%81ip">#</a>
+</h1>
+<h2 id="设置以太网静态ip">
+  设置以太网静态IP
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae%e4%bb%a5%e5%a4%aa%e7%bd%91%e9%9d%99%e6%80%81ip">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 修改网卡配置</span>
+</span></span><span style="display:flex;"><span>$ vi /etc/sysconfig/network-scripts/ifcfg-enp89s0
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修改如下：</span>
+</span></span><span style="display:flex;"><span>BOOTPROTO<span style="color:#f92672">=</span>static
+</span></span><span style="display:flex;"><span>ONBOOT<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>IPADDR<span style="color:#f92672">=</span>192.168.0.18
+</span></span><span style="display:flex;"><span>NETMASK<span style="color:#f92672">=</span>255.255.255.0
+</span></span><span style="display:flex;"><span>GATEWAY<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 重启网卡</span>
+</span></span><span style="display:flex;"><span>$ systemctl restart network
+</span></span></code></pre></div><h2 id="设置wifi连接静态ip">
+  设置wifi连接静态IP
+  <a class="anchor" href="#%e8%ae%be%e7%bd%aewifi%e8%bf%9e%e6%8e%a5%e9%9d%99%e6%80%81ip">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ vi /etc/sysconfig/network-scripts/ifcfg-TP-LINK_XXXX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修改BOOTPROTO为static</span>
+</span></span><span style="display:flex;"><span>BOOTPROTO<span style="color:#f92672">=</span>static
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#开机启用</span>
+</span></span><span style="display:flex;"><span>ONBOOT<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加IP</span>
+</span></span><span style="display:flex;"><span>IPADDR<span style="color:#f92672">=</span>192.168.0.12
+</span></span><span style="display:flex;"><span>NETMASK<span style="color:#f92672">=</span>255.255.255.0
+</span></span><span style="display:flex;"><span>GATEWAY<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 重启</span>
+</span></span><span style="display:flex;"><span>$ reboot
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看IP</span>
+</span></span><span style="display:flex;"><span>$ ip addr
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#centos设置静态ip">centos设置静态IP</a>
+      <ul>
+        <li><a href="#设置以太网静态ip">设置以太网静态IP</a></li>
+        <li><a href="#设置wifi连接静态ip">设置wifi连接静态IP</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,8 @@
   <url>
     <loc>http://localhost:1313/linux/centos-wifi/</loc>
   </url><url>
+    <loc>http://localhost:1313/linux/staticip/</loc>
+  </url><url>
     <loc>http://localhost:1313/linux/sysctl/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>

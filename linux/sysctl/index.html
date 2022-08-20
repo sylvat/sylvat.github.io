@@ -3,10 +3,10 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&#34;[$Example]&#34; $ sysctl -w net.ipv4.ip_local_port_range=&#34;10000 65535&#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 EOF $ sysctl -p /etc/sysctl.">
+<meta name="description" content="Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&#34;[$Example]&#34; $ sysctl -w net.ipv4.ip_local_port_range=&#34;10000 65535&#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 net.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&#34;[$Example]&#34; $ sysctl -w net.ipv4.ip_local_port_range=&#34;10000 65535&#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 EOF $ sysctl -p /etc/sysctl." />
+<meta property="og:description" content="Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&#34;[$Example]&#34; $ sysctl -w net.ipv4.ip_local_port_range=&#34;10000 65535&#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 net." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/linux/sysctl/" /><meta property="article:section" content="linux" />
 
@@ -17,7 +17,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.a2d1baf232f7c4515365ed1f25188396ef1c7166a83bb2a0dca7b9d7381f713c.js" integrity="sha256-otG68jL3xFFTZe0fJRiDlu8ccWaoO7Kg3Ke51zgfcTw=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.b506b3c0a3a8d01f285619b34991da0217fa146cdf2d7f5d7ef92416a1b0702d.js" integrity="sha256-tQazwKOo0B8oVhmzSZHaAhf6FGzfLX9dfvkkFqGwcC0=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -58,7 +58,8 @@ https://github.com/alex-shpak/hugo-book
   <ul>
 <li><strong>Linux</strong></li>
 <li><a href="/linux/sysctl/"class=active>Linux内核参数</a></li>
-<li><a href="/linux/centos-wifi/">centos连接wifi无线网</a>
+<li><a href="/linux/centos-wifi/">centos连接wifi无线网</a></li>
+<li><a href="/linux/staticip/">静态IP设置</a>
 <br /></li>
 </ul>
 
@@ -162,6 +163,7 @@ https://github.com/alex-shpak/hugo-book
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">fs.inotify.max_user_watches = 524288
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">fs.inotify.max_user_instances = 16384
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">vm.max_map_count = 262144
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">net.core.somaxconn = 65535
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
 </span></span><span style="display:flex;"><span>$ sysctl -p /etc/sysctl.d/k8s.conf
 </span></span></code></pre></div><h2 id="sysctl常用命令">
@@ -238,6 +240,12 @@ https://github.com/alex-shpak/hugo-book
 <td>8192</td>
 <td>524288</td>
 <td>表示同一用户同时可以添加的watch数目（watch一般是针对目录，决定了同时同一用户可以监控的目录数量）。</td>
+</tr>
+<tr>
+<td>net.core.somaxconn</td>
+<td>128</td>
+<td>65535</td>
+<td>socket监听（listen）的backlog上限</td>
 </tr>
 </tbody>
 </table>

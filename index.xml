@@ -11,7 +11,16 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/linux/centos-wifi/</guid>
-      <description> centos连接wifi无线网 # # list all network devices $ nmcli dev status # check if wifi is enabled or not. $ nmcli radio wifi # if wifi is disabled, then enable it. $ nmcli radio wifi on # 列出附近wifi $ nmcli dev wifi list # 连接wifi nmcli dev wifi connect &amp;lt;network-ssid&amp;gt; [password &amp;lt;password&amp;gt;] </description>
+      <description> centos连接wifi无线网 # # 查看网络设备 $ nmcli dev status DEVICE TYPE STATE CONNECTION wlo1 wifi 已连接 TP-LINK_XXXX enp89s0 ethernet 已连接 enp89s0 # 查看wifi开启状态 $ nmcli radio wifi # 开启/关闭wifi # nmcli radio wifi [on | off ] $ nmcli radio wifi on # 列出附近wifi $ nmcli dev wifi list # 连接wifi # nmcli dev wifi connect &amp;lt;network-ssid&amp;gt; [password &amp;lt;password&amp;gt;] $ nmcli dev wifi connect TP-LINK_XXXX password &amp;#34;88888888&amp;#34; # 断开wifi $ nmcli dev disconnect wlo1 # 查看连接 $ nmcli connection show $ nmcli con show # 删除连接 # nmcli connection delete [id | uuid | path] $ nmcli con delete TP-LINK_XXXX $ nmcli con delete 692c1f60-e5eb-4ff7-84e1-e6a025ae420c </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/linux/staticip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/linux/staticip/</guid>
+      <description> centos设置静态IP # 设置以太网静态IP # # 修改网卡配置 $ vi /etc/sysconfig/network-scripts/ifcfg-enp89s0 # 修改如下： BOOTPROTO=static ONBOOT=yes IPADDR=192.168.0.18 NETMASK=255.255.255.0 GATEWAY=192.168.0.1 # 重启网卡 $ systemctl restart network 设置wifi连接静态IP # $ vi /etc/sysconfig/network-scripts/ifcfg-TP-LINK_XXXX # 修改BOOTPROTO为static BOOTPROTO=static #开机启用 ONBOOT=yes # 添加IP IPADDR=192.168.0.12 NETMASK=255.255.255.0 GATEWAY=192.168.0.1 # 重启 $ reboot # 查看IP $ ip addr </description>
     </item>
     
     <item>
@@ -20,7 +29,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/linux/sysctl/</guid>
-      <description>Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&amp;#34;[$Example]&amp;#34; $ sysctl -w net.ipv4.ip_local_port_range=&amp;#34;10000 65535&amp;#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 EOF $ sysctl -p /etc/sysctl.</description>
+      <description>Linux内核参数 # 通过以下方式，修改内核参数 # 临时修改内核参数 # sysctl -w kernel.parameter=&amp;#34;[$Example]&amp;#34; $ sysctl -w net.ipv4.ip_local_port_range=&amp;#34;10000 65535&amp;#34; $ sysctl -w vm.max_map_count=262144 $ sysctl -w net.ipv4.ip_forward=1 # 修改/proc/sys目录下文件 $ echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward 通过修改配置文件的方式永久修改内核参数 # 执行以下命令，修改/etc/sysctl.conf文件中的参数 $ vi /etc/sysctl.conf # 执行以下命令，使配置生效 # -p 从指定的文件加载系统参数，如不指定即从/etc/sysctl.conf中加载 $ sysctl -p # sysctl.d目录下配置文件 $ cat &amp;lt;&amp;lt;EOF | sudo tee /etc/sysctl.d/k8s.conf net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-ip6tables = 1 net.bridge.bridge-nf-call-iptables = 1 fs.inotify.max_user_watches = 524288 fs.inotify.max_user_instances = 16384 vm.max_map_count = 262144 net.</description>
     </item>
     
   </channel>
